@@ -180,6 +180,18 @@ Parameter name | Docker variable | Description
         </td>
     </tr>
     <tr>
+        <td><a name="user-content-theme"></a><code>theme</code></td>
+        <td><code>THEME</code></td>
+        <td><code>String=["light"*, "dark", "auto"]</code>. Controls the UI color
+            theme. When set to <code>"light"</code> (default), the standard light
+            appearance is used. When set to <code>"dark"</code>, dark mode is
+            activated. When set to <code>"auto"</code>, the theme follows the
+            operating system's <code>prefers-color-scheme</code> setting. Theme
+            preference is persisted in <code>localStorage</code> under the key
+            <code>swagger-ui-theme</code>.
+        </td>
+    </tr>
+    <tr>
         <td>
             <a name="user-content-useunsafemarkdown"></a><code>useUnsafeMarkdown</code>
         </td>
