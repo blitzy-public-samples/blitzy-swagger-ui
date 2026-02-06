@@ -44,9 +44,8 @@ const STORAGE_KEY = "swagger-ui-theme"
  */
 export const setTheme = (themeValue) => () => {
   // Validate themeValue — default to 'light' if invalid
-  const validatedTheme = VALID_THEMES.indexOf(themeValue) !== -1
-    ? themeValue
-    : "light"
+  const validatedTheme =
+    VALID_THEMES.indexOf(themeValue) !== -1 ? themeValue : "light"
 
   // Persist theme preference to localStorage
   try {
