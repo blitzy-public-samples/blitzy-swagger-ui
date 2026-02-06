@@ -2,6 +2,7 @@
  * @prettier
  */
 import React, { Component } from "react"
+import PropTypes from "prop-types"
 
 import LightBulb from "../assets/lightbulb.svg"
 import LightBulbOff from "../assets/lightbulb-off.svg"
@@ -9,30 +10,27 @@ import LightBulbOff from "../assets/lightbulb-off.svg"
 class DarkModeToggle extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      isDarkMode: false,
-    }
-    this.toggleIsDarkMode = this.toggleIsDarkMode.bind(this)
+    this.toggleTheme = this.toggleTheme.bind(this)
   }
 
-  componentDidMount() {
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      document.documentElement.classList.add("dark-mode")
-      this.setState({ isDarkMode: true })
-    }
-  }
+  toggleTheme() {
+    const { themeActions, themeSelectors } = this.props
+    const isDarkMode = themeSelectors?.isDarkMode?.() ?? false
 
-  toggleIsDarkMode() {
-    document.documentElement.classList.toggle("dark-mode")
-    this.setState((prevState) => ({ isDarkMode: !prevState.isDarkMode }))
+    if (themeActions) {
+      themeActions.setTheme(isDarkMode ? "light" : "dark")
+    } else {
+      document.documentElement.classList.toggle("dark-mode")
+    }
   }
 
   render() {
-    const { isDarkMode } = this.state
+    const { themeSelectors } = this.props
+    const isDarkMode = themeSelectors?.isDarkMode?.() ?? false
 
     return (
       <div className="dark-mode-toggle">
-        <button onClick={this.toggleIsDarkMode}>
+        <button onClick={this.toggleTheme}>
           {!isDarkMode ? (
             <LightBulbOff height="24" />
           ) : (
@@ -42,6 +40,11 @@ class DarkModeToggle extends Component {
       </div>
     )
   }
+}
+
+DarkModeToggle.propTypes = {
+  themeActions: PropTypes.object,
+  themeSelectors: PropTypes.object,
 }
 
 export default DarkModeToggle

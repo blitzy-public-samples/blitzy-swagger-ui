@@ -180,6 +180,18 @@ Parameter name | Docker variable | Description
         </td>
     </tr>
     <tr>
+        <td><a name="user-content-theme"></a><code>theme</code></td>
+        <td><code>THEME</code></td>
+        <td><code>String=["light"*, "dark", "auto"]</code>. Controls the UI color
+            theme. When set to <code>"light"</code> (default), the standard light
+            appearance is used. When set to <code>"dark"</code>, dark mode is
+            activated. When set to <code>"auto"</code>, the theme follows the
+            operating system's <code>prefers-color-scheme</code> setting. Theme
+            preference is persisted in <code>localStorage</code> under the key
+            <code>swagger-ui-theme</code>.
+        </td>
+    </tr>
+    <tr>
         <td>
             <a name="user-content-useunsafemarkdown"></a><code>useUnsafeMarkdown</code>
         </td>
@@ -224,6 +236,19 @@ Parameter name | Docker variable | Description
             "tomorrow-night", "idea"]</code>. <a
                 href="https://highlightjs.org/demo/" rel="nofollow">Highlight.js</a>
             syntax coloring theme to use. (Only these 7 styles are available.)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a name="user-content-theme"></a><code>theme</code>
+        </td>
+        <td><code>THEME</code></td>
+        <td><code>String=["light"*, "dark", "auto"]</code>. Controls the UI
+            color theme. <code>"light"</code> uses the default light appearance,
+            <code>"dark"</code> enables dark mode, and <code>"auto"</code>
+            follows the operating system's <code>prefers-color-scheme</code>
+            setting. The preference is persisted in <code>localStorage</code>
+            across browser sessions.
         </td>
     </tr>
     <tr>

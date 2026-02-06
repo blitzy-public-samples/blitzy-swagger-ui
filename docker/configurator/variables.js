@@ -106,6 +106,10 @@ const standardVariables = {
   WITH_CREDENTIALS: {
     type: "boolean",
     name: "withCredentials",
+  },
+  THEME: {
+    type: "string",
+    name: "theme",
   }
 }
 

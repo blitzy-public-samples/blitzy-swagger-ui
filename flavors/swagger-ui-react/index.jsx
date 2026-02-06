@@ -43,6 +43,7 @@ const SwaggerUI = ({
   displayRequestDuration = config.defaults.displayRequestDuration,
   withCredentials = config.defaults.withCredentials,
   persistAuthorization = config.defaults.persistAuthorization,
+  theme = config.defaults.theme,
   oauth2RedirectUrl = config.defaults.oauth2RedirectUrl,
   onComplete = null,
   initialState = config.defaults.initialState,
@@ -85,6 +86,7 @@ const SwaggerUI = ({
       filter,
       persistAuthorization,
       withCredentials,
+      theme,
       initialState,
       uncaughtExceptionHandler,
       ...(typeof oauth2RedirectUrl === "string"
@@ -168,6 +170,7 @@ SwaggerUI.propTypes = {
   displayRequestDuration: PropTypes.bool,
   persistAuthorization: PropTypes.bool,
   withCredentials: PropTypes.bool,
+  theme: PropTypes.oneOf(["light", "dark", "auto"]),
   oauth2RedirectUrl: PropTypes.string,
   initialState: PropTypes.object,
   uncaughtExceptionHandler: PropTypes.func,

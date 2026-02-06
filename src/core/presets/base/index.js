@@ -22,12 +22,14 @@ import DownloadUrlPlugin from "core/plugins/download-url"
 import SyntaxHighlightingPlugin from "core/plugins/syntax-highlighting"
 import VersionsPlugin from "core/plugins/versions"
 import SafeRenderPlugin from "core/plugins/safe-render"
+import ThemePlugin from "core/plugins/theme"
 // ad-hoc plugins
 import CoreComponentsPlugin from "core/presets/base/plugins/core-components"
 import FormComponentsPlugin from "core/presets/base/plugins/form-components"
 
 const BasePreset = () => [
   ConfigsPlugin,
+  ThemePlugin,
   UtilPlugin,
   LogsPlugin,
   ViewPlugin,

@@ -38,6 +38,50 @@ $opblock_colors: (
   options: (#202C3C, #33465E, #314558, #6895C8),
 );
 
+// CSS Custom Properties — light mode defaults
+:root {
+  --swagger-ui-bg: #fff;
+  --swagger-ui-text: #3b4151;
+  --swagger-ui-link: #4990e2;
+  --swagger-ui-heading: #3b4151;
+  --swagger-ui-code: #3b4151;
+  --swagger-ui-border: #3b4151;
+  --swagger-ui-success: #49cc90;
+  --swagger-ui-error: #f93e3e;
+  --swagger-ui-warning: #ff6060;
+  --swagger-ui-modal-bg: #fff;
+  --swagger-ui-input-bg: #fff;
+  --swagger-ui-authorize: #49cc90;
+}
+
+// CSS Custom Properties — dark mode overrides
+html.dark-mode {
+  --swagger-ui-bg: #{$neutral-98};
+  --swagger-ui-text: #{$neutral-20};
+  --swagger-ui-link: #{$link};
+  --swagger-ui-heading: #{$neutral-10};
+  --swagger-ui-code: #{$neutral-20};
+  --swagger-ui-border: #{$neutral-60};
+  --swagger-ui-success: #{$success-30};
+  --swagger-ui-error: #{$error-30};
+  --swagger-ui-warning: #{$error-30};
+  --swagger-ui-modal-bg: #{$neutral-95};
+  --swagger-ui-input-bg: #{$neutral-98};
+  --swagger-ui-authorize: #{$authorize-button};
+  --swagger-ui-markdown-code: #{$markdown-code};
+  --swagger-ui-neutral-10: #{$neutral-10};
+  --swagger-ui-neutral-20: #{$neutral-20};
+  --swagger-ui-neutral-30: #{$neutral-30};
+  --swagger-ui-neutral-40: #{$neutral-40};
+  --swagger-ui-neutral-50: #{$neutral-50};
+  --swagger-ui-neutral-60: #{$neutral-60};
+  --swagger-ui-neutral-80: #{$neutral-80};
+  --swagger-ui-neutral-85: #{$neutral-85};
+  --swagger-ui-neutral-95: #{$neutral-95};
+  --swagger-ui-neutral-98: #{$neutral-98};
+  --swagger-ui-neutral-100: #{$neutral-100};
+}
+
 html.dark-mode {
   background: $neutral-98;
 
