@@ -10,11 +10,19 @@ import LightBulbOff from "../assets/lightbulb-off.svg"
 class DarkModeToggle extends Component {
   render() {
     const { themeSelectors, themeActions } = this.props
-    const isDarkMode = themeSelectors?.currentTheme() === "dark"
+    const isDarkMode = themeSelectors?.isDarkMode?.() ?? false
 
     return (
       <div className="dark-mode-toggle">
-        <button onClick={() => themeActions.setTheme(isDarkMode ? "light" : "dark")}>
+        <button
+          onClick={() => {
+            if (themeActions) {
+              themeActions.setTheme(isDarkMode ? "light" : "dark")
+            } else {
+              document.documentElement.classList.toggle("dark-mode")
+            }
+          }}
+        >
           {!isDarkMode ? (
             <LightBulbOff height="24" />
           ) : (
