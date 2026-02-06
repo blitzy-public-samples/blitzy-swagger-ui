@@ -228,6 +228,19 @@ Parameter name | Docker variable | Description
     </tr>
     <tr>
         <td>
+            <a name="user-content-theme"></a><code>theme</code>
+        </td>
+        <td><code>THEME</code></td>
+        <td><code>String=["light"*, "dark", "auto"]</code>. Controls the UI
+            color theme. <code>"light"</code> uses the default light appearance,
+            <code>"dark"</code> enables dark mode, and <code>"auto"</code>
+            follows the operating system's <code>prefers-color-scheme</code>
+            setting. The preference is persisted in <code>localStorage</code>
+            across browser sessions.
+        </td>
+    </tr>
+    <tr>
+        <td>
             <a name="user-content-tryitoutenabled"></a><code>tryItOutEnabled</code>
         </td>
         <td><code>TRY_IT_OUT_ENABLED</code></td>

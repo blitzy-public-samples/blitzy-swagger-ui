@@ -38,7 +38,34 @@ $opblock_colors: (
   options: (#202C3C, #33465E, #314558, #6895C8),
 );
 
+// CSS Custom Properties for downstream customization without Sass compilation.
+// Light mode defaults are declared on :root so they are always available.
+// Dark mode overrides are scoped under html.dark-mode.
+:root {
+  --swagger-ui-bg: #ffffff;
+  --swagger-ui-text: #3b4151;
+  --swagger-ui-link: #4990e2;
+  --swagger-ui-heading: #3b4151;
+  --swagger-ui-border: #e8e8e8;
+  --swagger-ui-input-bg: #ffffff;
+  --swagger-ui-input-text: #3b4151;
+  --swagger-ui-input-border: #d9d9d9;
+  --swagger-ui-code-bg: rgba(0, 0, 0, 0.05);
+  --swagger-ui-code-text: #9012fe;
+}
+
 html.dark-mode {
+  --swagger-ui-bg: #{$neutral-98};
+  --swagger-ui-text: #{$neutral-20};
+  --swagger-ui-link: #{$link};
+  --swagger-ui-heading: #{$neutral-10};
+  --swagger-ui-border: #{$neutral-85};
+  --swagger-ui-input-bg: #{$textarea};
+  --swagger-ui-input-text: #{$neutral-10};
+  --swagger-ui-input-border: #{$neutral-80};
+  --swagger-ui-code-bg: #{$neutral-95};
+  --swagger-ui-code-text: #{$markdown-code};
+
   background: $neutral-98;
 
   .swagger-ui {

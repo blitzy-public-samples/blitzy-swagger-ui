@@ -96,6 +96,8 @@ const defaultOptions = Object.freeze({
   ],
 
   uncaughtExceptionHandler: null,
+
+  theme: "light",
 })
 
 export default defaultOptions

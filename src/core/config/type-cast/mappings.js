@@ -134,6 +134,7 @@ const mappings = {
     defaultValue: defaultOptions.withCredentials,
   },
   uncaughtExceptionHandler: { typeCaster: nullableFunctionTypeCaster },
+  theme: { typeCaster: stringTypeCaster },
 }
 
 export default mappings

@@ -47,6 +47,7 @@ const SwaggerUI = ({
   onComplete = null,
   initialState = config.defaults.initialState,
   uncaughtExceptionHandler = config.defaults.uncaughtExceptionHandler,
+  theme = config.defaults.theme,
 }) => {
   const [system, setSystem] = useState(null)
   const SwaggerUIComponent = system?.getComponent("App", "root")
@@ -87,6 +88,7 @@ const SwaggerUI = ({
       withCredentials,
       initialState,
       uncaughtExceptionHandler,
+      theme,
       ...(typeof oauth2RedirectUrl === "string"
         ? { oauth2RedirectUrl: oauth2RedirectUrl }
         : {}),
@@ -171,6 +173,7 @@ SwaggerUI.propTypes = {
   oauth2RedirectUrl: PropTypes.string,
   initialState: PropTypes.object,
   uncaughtExceptionHandler: PropTypes.func,
+  theme: PropTypes.oneOf(["light", "dark", "auto"]),
 }
 SwaggerUI.System = SwaggerUIConstructor.System
 SwaggerUI.presets = SwaggerUIConstructor.presets
