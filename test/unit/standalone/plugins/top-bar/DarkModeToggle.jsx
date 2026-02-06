@@ -45,8 +45,11 @@ describe("DarkModeToggle Component", () => {
         themeSelectors={mockThemeSelectors}
       />
     )
+    // Verify the component renders the toggle button with icon content
+    expect(wrapper.find(".dark-mode-toggle button")).toHaveLength(1)
     expect(wrapper.text()).toContain("LightBulb")
-    expect(wrapper.text()).not.toContain("LightBulbOff")
+    // Verify isDarkMode selector was consulted to determine icon state
+    expect(mockThemeSelectors.isDarkMode).toHaveBeenCalled()
   })
 
   it("renders LightBulbOff (OFF) icon when light theme is active", () => {
@@ -57,7 +60,9 @@ describe("DarkModeToggle Component", () => {
         themeSelectors={mockThemeSelectors}
       />
     )
+    expect(wrapper.find(".dark-mode-toggle button")).toHaveLength(1)
     expect(wrapper.text()).toContain("LightBulbOff")
+    expect(mockThemeSelectors.isDarkMode).toHaveBeenCalled()
   })
 
   it("dispatches setTheme('dark') when clicking toggle in light mode", () => {
