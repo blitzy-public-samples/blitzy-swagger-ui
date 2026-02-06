@@ -21,6 +21,7 @@ const defaultOptions = Object.freeze({
   displayOperationId: false,
   displayRequestDuration: false,
   deepLinking: false,
+  theme: "light",
   tryItOutEnabled: false,
   requestInterceptor: (request) => {
     request.curlOptions = []
@@ -96,8 +97,6 @@ const defaultOptions = Object.freeze({
   ],
 
   uncaughtExceptionHandler: null,
-
-  theme: "light",
 })
 
 export default defaultOptions
