@@ -199,9 +199,9 @@ describe("theme plugin", () => {
 
         setTheme("auto")(system)
 
-        expect(
-          document.documentElement.classList.contains("dark-mode")
-        ).toBe(true)
+        expect(document.documentElement.classList.contains("dark-mode")).toBe(
+          true
+        )
       })
 
       it("should remove 'dark-mode' class when auto resolves to light via matchMedia", () => {
@@ -221,9 +221,9 @@ describe("theme plugin", () => {
 
         setTheme("auto")(system)
 
-        expect(
-          document.documentElement.classList.contains("dark-mode")
-        ).toBe(false)
+        expect(document.documentElement.classList.contains("dark-mode")).toBe(
+          false
+        )
       })
 
       it("should fallback to 'light' for invalid theme values and remove dark-mode class", () => {
@@ -233,9 +233,9 @@ describe("theme plugin", () => {
         const result = setTheme("invalid-value")(system)
 
         expect(result.payload).toBe("light")
-        expect(
-          document.documentElement.classList.contains("dark-mode")
-        ).toBe(false)
+        expect(document.documentElement.classList.contains("dark-mode")).toBe(
+          false
+        )
       })
 
       it("should handle localStorage errors gracefully without throwing", () => {
@@ -407,9 +407,9 @@ describe("theme plugin", () => {
 
       afterLoad(system)
 
-      expect(
-        document.documentElement.classList.contains("dark-mode")
-      ).toBe(true)
+      expect(document.documentElement.classList.contains("dark-mode")).toBe(
+        true
+      )
     })
 
     it("should use localStorage override when it takes precedence over config", () => {
@@ -452,9 +452,9 @@ describe("theme plugin", () => {
 
       afterLoad(system)
 
-      expect(
-        document.documentElement.classList.contains("dark-mode")
-      ).toBe(true)
+      expect(document.documentElement.classList.contains("dark-mode")).toBe(
+        true
+      )
     })
 
     it("should attach media query change listener when theme is 'auto'", () => {
@@ -571,11 +571,13 @@ describe("theme plugin", () => {
         .mockReturnValue(null)
 
       let capturedChangeHandler = null
-      const addEventListenerMock = jest.fn().mockImplementation((event, handler) => {
-        if (event === "change") {
-          capturedChangeHandler = handler
-        }
-      })
+      const addEventListenerMock = jest
+        .fn()
+        .mockImplementation((event, handler) => {
+          if (event === "change") {
+            capturedChangeHandler = handler
+          }
+        })
       window.matchMedia = jest.fn().mockImplementation((query) => ({
         matches: false,
         media: query,
@@ -600,18 +602,18 @@ describe("theme plugin", () => {
       // Simulate system switching to dark mode
       capturedChangeHandler({ matches: true })
 
-      expect(
-        document.documentElement.classList.contains("dark-mode")
-      ).toBe(true)
+      expect(document.documentElement.classList.contains("dark-mode")).toBe(
+        true
+      )
       // Re-dispatches 'auto' to trigger state re-resolution in selectors
       expect(system.themeActions.setTheme).toHaveBeenLastCalledWith("auto")
 
       // Simulate system switching back to light mode
       capturedChangeHandler({ matches: false })
 
-      expect(
-        document.documentElement.classList.contains("dark-mode")
-      ).toBe(false)
+      expect(document.documentElement.classList.contains("dark-mode")).toBe(
+        false
+      )
     })
   })
 })
