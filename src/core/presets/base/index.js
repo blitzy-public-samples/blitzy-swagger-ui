@@ -29,6 +29,7 @@ import FormComponentsPlugin from "core/presets/base/plugins/form-components"
 
 const BasePreset = () => [
   ConfigsPlugin,
+  ThemePlugin,
   UtilPlugin,
   LogsPlugin,
   ViewPlugin,
@@ -50,7 +51,6 @@ const BasePreset = () => [
   RequestSnippetsPlugin,
   SyntaxHighlightingPlugin,
   VersionsPlugin,
-  ThemePlugin,
   SafeRenderPlugin(),
 ]
 
