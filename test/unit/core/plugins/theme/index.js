@@ -2,9 +2,15 @@
  * @prettier
  */
 import { fromJS } from "immutable"
-import { SET_THEME, setTheme } from "../../../../../src/core/plugins/theme/actions"
+import {
+  SET_THEME,
+  setTheme,
+} from "../../../../../src/core/plugins/theme/actions"
 import reducers from "../../../../../src/core/plugins/theme/reducers"
-import { currentTheme, isDarkMode } from "../../../../../src/core/plugins/theme/selectors"
+import {
+  currentTheme,
+  isDarkMode,
+} from "../../../../../src/core/plugins/theme/selectors"
 import afterLoad from "../../../../../src/core/plugins/theme/after-load"
 
 describe("theme plugin", () => {
@@ -53,13 +59,17 @@ describe("theme plugin", () => {
 
       it("should add dark-mode class when theme is dark", () => {
         setTheme("dark")()
-        expect(document.documentElement.classList.contains("dark-mode")).toBe(true)
+        expect(document.documentElement.classList.contains("dark-mode")).toBe(
+          true
+        )
       })
 
       it("should remove dark-mode class when theme is light", () => {
         document.documentElement.classList.add("dark-mode")
         setTheme("light")()
-        expect(document.documentElement.classList.contains("dark-mode")).toBe(false)
+        expect(document.documentElement.classList.contains("dark-mode")).toBe(
+          false
+        )
       })
 
       it("should default to light for invalid theme values", () => {
@@ -68,9 +78,11 @@ describe("theme plugin", () => {
       })
 
       it("should handle localStorage errors gracefully", () => {
-        jest.spyOn(window.localStorage.__proto__, "setItem").mockImplementation(() => {
-          throw new Error("QuotaExceededError")
-        })
+        jest
+          .spyOn(window.localStorage.__proto__, "setItem")
+          .mockImplementation(() => {
+            throw new Error("QuotaExceededError")
+          })
         // Should not throw
         const action = setTheme("dark")()
         expect(action.type).toBe(SET_THEME)
@@ -199,11 +211,15 @@ describe("theme plugin", () => {
         themeActions: { setTheme: jest.fn() },
       }
       afterLoad(system)
-      expect(document.documentElement.classList.contains("dark-mode")).toBe(true)
+      expect(document.documentElement.classList.contains("dark-mode")).toBe(
+        true
+      )
     })
 
     it("should use localStorage override over config", () => {
-      jest.spyOn(window.localStorage.__proto__, "getItem").mockReturnValue("dark")
+      jest
+        .spyOn(window.localStorage.__proto__, "getItem")
+        .mockReturnValue("dark")
       const system = {
         getConfigs: jest.fn(() => ({ theme: "light" })),
         themeActions: { setTheme: jest.fn() },
