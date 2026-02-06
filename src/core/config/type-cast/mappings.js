@@ -121,6 +121,7 @@ const mappings = {
   tagsSorter: {
     typeCaster: sorterTypeCaster,
   },
+  theme: { typeCaster: stringTypeCaster },
   tryItOutEnabled: {
     typeCaster: booleanTypeCaster,
     defaultValue: defaultOptions.tryItOutEnabled,
